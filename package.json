@@ -1,5 +1,6 @@
 {
-  "name": "@prisma-cms/component-boilerplate",
+  "name": "@modxclub/react-editor",
+  "preview": false,
   "version": "1.0.2",
   "private": false,
   "main": "/lib/App.js",
@@ -7,10 +8,13 @@
     "start": "react-scripts start",
     "build": "nwb build --copy-files",
     "build-app": "react-scripts build",
+    "build-less": "node-less-chokidar src/styles/less",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "md5": "^2.2.1",
+    "prismjs": "1.6.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   },
@@ -32,10 +36,6 @@
   "directories": {
     "lib": "lib"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/prisma-cms/component-boilerplate.git"
-  },
   "keywords": [
     "prisma-cms",
     "front",
@@ -43,8 +43,12 @@
   ],
   "author": "Fi1osof",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/prisma-cms/component-boilerplate/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MODX-Club/react-editor.git"
   },
-  "homepage": "https://github.com/prisma-cms/component-boilerplate#readme"
+  "bugs": {
+    "url": "https://github.com/MODX-Club/react-editor/issues"
+  },
+  "homepage": "https://github.com/MODX-Club/react-editor#readme"
 }

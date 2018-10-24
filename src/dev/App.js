@@ -19,7 +19,7 @@ class DevRenderer extends PrismaCmsRenderer {
 
   static defaultProps = {
     ...PrismaCmsRenderer.defaultProps,
-    pure: false,
+    pure: true,
   }
 
   getRoutes() {
@@ -44,6 +44,16 @@ class DevRenderer extends PrismaCmsRenderer {
     } = this.props;
 
     return pure ? <App
+      content={`<p>Test content</p>`}
+      allow_edit={true}
+      inEditMode={true}
+      onChange={(state, rawContent) => {
+        console.log("onChange newState", state);
+        console.log("onChange rawContent", rawContent);
+      }}
+      Send={event => {
+        console.log("Send", event);
+      }}
       {...other}
     /> : super.render();
 

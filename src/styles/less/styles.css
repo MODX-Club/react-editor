@@ -1,0 +1,132 @@
+.CommentEditorWrapper {
+  width: 100%;
+  margin-top: 17px;
+  margin: 0!important;
+}
+.RichEditor-controls {
+  padding: 5px;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  margin: 0 0 0 10px;
+}
+.Editor-container {
+  width: 100%;
+  position: relative;
+}
+.Editor-container.edit {
+  padding-left: 10px;
+}
+.Editor-container .send-button__wrapper {
+  position: absolute;
+  right: 0;
+  top: 0px;
+}
+.Editor-container .DraftEditor-root {
+  width: 100%;
+  padding: 0!important;
+}
+.edit.Editor-container .DraftEditor-root {
+  border: none!important;
+  padding: 5px 0!important;
+}
+.edit.Editor-container .DraftEditor-root .public-DraftEditor-content {
+  border: 1px solid #ddd;
+  padding: 10px 5px;
+  border-radius: 3px;
+}
+.Editor-container .Editor-text {
+  background-color: transparent!important;
+  margin: 0;
+  padding: 20px 0;
+  -webkit-transition: background-color 0.2s fade-in-out;
+}
+.Editor-container .Editor-text .text-content {
+  cursor: default;
+}
+.edit.Editor-container .Editor-text .text-content {
+  cursor: pointer;
+}
+.Editor-activeText.Editor-container .Editor-text .text-content {
+  cursor: default;
+}
+.Editor-root {
+  -webkit-font-smoothing: antialiased;
+}
+.Editor-root .Editor-editor {
+  cursor: text;
+  font-size: 17px !important;
+  min-height: 40px;
+  padding: 0;
+}
+.Editor-root figure {
+  margin: auto;
+}
+.Editor-root .insert-code-button {
+  margin: 20px;
+}
+.Editor-button {
+  margin-top: 10px;
+  text-align: center;
+}
+.Editor-handle {
+  color: #62b1fe;
+  direction: ltr;
+  unicode-bidi: bidi-override;
+}
+.Editor-hashtag {
+  color: #5fb88a;
+}
+.Editor-activeText {
+  color: #888;
+}
+.Editor-panel {
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 200;
+}
+.Editor-panel .Editor-textValue {
+  border: 1px solid #e1e1e1;
+  display: block;
+  font-family: 'Inconsolata', 'Menlo', monospace;
+  font-size: 14px;
+  height: 110px;
+  margin: 20px 0;
+  outline: none;
+  padding: 14px;
+  resize: none;
+  -webkit-box-sizing: border-box;
+  width: 100%;
+}
+.Editor-buttons {
+  text-align: center;
+}
+.Editor-saveButton,
+.Editor-removeButton {
+  background-color: #fff;
+  border: 1px solid #0a0;
+  cursor: pointer;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  margin: 10px auto;
+  padding: 6px;
+  -webkit-border-radius: 3px;
+  width: 100px;
+}
+.Editor-removeButton {
+  border-color: #aaa;
+  color: #999;
+  margin-left: 8px;
+}
+.Editor-invalidButton {
+  background-color: #eee;
+  border-color: #a00;
+  color: #666;
+}
+.Editor-insert {
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  bottom: 30px;
+  position: fixed;
+  right: 30px;
+}
