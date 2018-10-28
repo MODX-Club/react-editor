@@ -48,8 +48,8 @@ class DevRenderer extends PrismaCmsRenderer {
       allow_edit={true}
       inEditMode={true}
       onChange={(state, rawContent) => {
-        console.log("onChange newState", state);
-        console.log("onChange rawContent", rawContent);
+        // console.log("onChange newState", state);
+        // console.log("onChange rawContent", rawContent);
       }}
       Send={event => {
         console.log("Send", event);

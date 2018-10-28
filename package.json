@@ -1,9 +1,9 @@
 {
   "name": "@modxclub/react-editor",
   "preview": false,
-  "version": "1.0.2",
+  "version": "1.0.4",
   "private": false,
-  "main": "/lib/App.js",
+  "main": "lib/App.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "nwb build --copy-files",

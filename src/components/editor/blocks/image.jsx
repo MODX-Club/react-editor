@@ -7,7 +7,7 @@ import React from 'react';
 import Dialog, { DialogActions, DialogContent } from 'material-ui/Dialog';
 import Button from 'material-ui/Button';
 
-import './styles/styles.less';
+// import './styles/styles.less';
 import withStyles from 'material-ui/styles/withStyles';
 
 
@@ -36,6 +36,21 @@ const styles = (theme) => {
     },
     img: {
       maxWidth: "100%",
+
+
+      ".editor-image__wrapper &": {
+
+        "&.thumb": {
+          maxWidth: 400,
+          maxHeight: 250,
+          cursor: "pointer",
+        },
+      },
+
+      "&.opened": {
+        display: "block",
+        maxWidth: "100%"
+      },
     },
   };
 
@@ -82,23 +97,27 @@ export class ImageBlock extends React.Component {
           }
         </div>
         <img
-          className={["editor-image thumb", classes.img, classes.thumb].join(" ")}
+          className={["thumb", classes.img, classes.thumb].join(" ")}
           src={this.state.src}
           onClick={this.handleOpen}
         />
 
         <Dialog
           className={[classes.dialog].join(" ")}
-          onRequestClose={this.handleClose}
+          onBackdropClick={this.handleClose}
+          onClose={this.handleClose}
+          onEscapeKeyDown={this.handleClose}
           open={this.state.open}
-          paperClassName="dialog-paper"
+          PaperProps={{
+            className: "dialog-paper",
+          }}
         >
 
           <DialogContent
             className={[classes.dialogContent].join(" ")}
           >
             <img
-              className={["editor-image opened", classes.img].join(" ")}
+              className={["opened", classes.img].join(" ")}
               src={this.state.src}
             />
           </DialogContent>

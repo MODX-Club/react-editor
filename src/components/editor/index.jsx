@@ -272,7 +272,7 @@ export default class TextEditor extends React.Component {
     super(props);
 
 
-    console.log("TextEditor constructor", props);
+    // console.log("TextEditor constructor", props);
 
     let {
       setFullView,
@@ -813,11 +813,11 @@ export default class TextEditor extends React.Component {
 
 
   handleDroppedFiles = (selection, files) => {
-    console.log('handleDroppedFiles', selection, files);
+    // console.log('handleDroppedFiles', selection, files);
   }
 
   handleDrop = (selection, files) => {
-    console.log('handleDrop', selection, files);
+    // console.log('handleDrop', selection, files);
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -902,30 +902,30 @@ export default class TextEditor extends React.Component {
 
     var sendButton, editButton;
 
-    if (this.state.allow_edit) {
-      if (this.state.inEditMode) {
-        sendButton = <IconButton
-          onClick={event => this.Send(event)}>
-          {this.state.sending !== true
-            ?
-            <Send
-              color={this.state.isDirty === true ? 'red' : '#8080FF'}
-            />
-            :
-            <WaitIcon
-              color="grey"
-            />
-          }
+    // if (this.state.allow_edit) {
+    //   if (this.state.inEditMode) {
+    //     sendButton = <IconButton
+    //       onClick={event => this.Send(event)}>
+    //       {this.state.sending !== true
+    //         ?
+    //         <Send
+    //           color={this.state.isDirty === true ? 'red' : '#8080FF'}
+    //         />
+    //         :
+    //         <WaitIcon
+    //           color="grey"
+    //         />
+    //       }
 
-        </IconButton>;
-      }
-      else {
-        editButton = <IconButton
-          onClick={this.editMessage.bind(this)}>
-          <Create />
-        </IconButton>;
-      }
-    }
+    //     </IconButton>;
+    //   }
+    //   else {
+    //     editButton = <IconButton
+    //       onClick={this.editMessage.bind(this)}>
+    //       <Create />
+    //     </IconButton>;
+    //   }
+    // }
 
     let { editorState } = this.state;
 
