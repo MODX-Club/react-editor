@@ -43,19 +43,32 @@ class DevRenderer extends PrismaCmsRenderer {
       ...other
     } = this.props;
 
-    return pure ? <App
-      content={`<p>Test content</p>`}
-      allow_edit={true}
-      inEditMode={true}
-      onChange={(state, rawContent) => {
-        // console.log("onChange newState", state);
-        // console.log("onChange rawContent", rawContent);
-      }}
-      Send={event => {
-        console.log("Send", event);
-      }}
-      {...other}
-    /> : super.render();
+    const {
+      rawContent,
+    } = this.state;
+
+    return <div>
+      {pure ? <App
+        content={`<p>Test content</p>`}
+        allow_edit={true}
+        inEditMode={true}
+        onChange={(state, rawContent) => {
+          // console.log("onChange newState", state);
+          // console.log("onChange rawContent", rawContent);
+          this.setState({
+            rawContent,
+          });
+        }}
+        Send={event => {
+          console.log("Send", event);
+        }}
+        {...other}
+      /> : super.render()}
+
+      <div>
+        {JSON.stringify(rawContent)}
+      </div>
+    </div>;
 
   }
 
