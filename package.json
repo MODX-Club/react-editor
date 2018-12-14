@@ -1,7 +1,7 @@
 {
   "name": "@modxclub/react-editor",
   "preview": false,
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": false,
   "main": "lib/App.js",
   "scripts": {
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "md5": "^2.2.1",
-    "prismjs": "1.6.0",
+    "prismjs": "^1.15.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   },

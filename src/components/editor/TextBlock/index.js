@@ -16,34 +16,23 @@
 
 import React from 'react';
 
+import PropTypes from "prop-types";
 
 import Chip from 'material-ui/Chip';
 
-import 'prismjs/themes/prism.css';
-
-import prism from 'prismjs';
-import 'prismjs/components/prism-php.js';
-import 'prismjs/components/prism-sql.js';
-import 'prismjs/components/prism-smarty.js';
-import 'prismjs/components/prism-jsx.js';
 import withStyles from 'material-ui/styles/withStyles';
 
-const CodeOutputBlockPropTypes = {
-};
-
-const CodeOutputBlockDefaultProps = {
-  lang: "php",
-};
+import CodeOutputBlock from "./CodeBlock";
 
 const styles = (theme) => {
+
+  // console.log("theme", theme);
 
   if (!theme) {
     return {
 
     }
   }
-
-  console.log("theme", theme);
 
   return {
 
@@ -53,7 +42,8 @@ const styles = (theme) => {
       cursor: 'pointer',
 
       '&.active': {
-        backgroundColor: theme.palette.secondary[500],
+        backgroundColor: theme.palette.primary[500],
+        color: "white",
 
         '& .label': {
           color: theme.palette.secondary.contrastDefaultColor,
@@ -71,68 +61,18 @@ const styles = (theme) => {
 };
 
 
-class CodeOutputBlock extends React.Component {
-
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      lang: props.lang
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-
-    if (nextProps.lang != this.state.lang) {
-      this.setState({
-        lang: nextProps.lang,
-      });
-    }
-
-    return true;
-  }
-
-  componentDidMount() {
-    if (!this.props.content) {
-      this.props.onClick();
-    }
-  }
-
-  render() {
-
-
-    var output;
-
-    var language;
-    var lang = this.state.lang;
-
-    if (typeof prism.languages[lang] == "undefined") {
-      console.error("Unsupported language '" + lang + "'");
-      lang = this.defaultLang;
-    }
-
-    if (this.props.content) {
-      output = prism.highlight(this.props.content, prism.languages[lang]);
-    }
-
-    return <div className="text-content" dangerouslySetInnerHTML={{ __html: output }} onClick={this.props.onClick} />;
-  }
-}
-
-CodeOutputBlock.propTypes = CodeOutputBlockPropTypes;
-CodeOutputBlock.defaultProps = CodeOutputBlockDefaultProps;
-
-
-const propTypes = {
-};
-
-const defaultProps = {
-  lang: "php",
-  // fullView: true,
-};
-
 export class TextBlock extends React.Component {
+
+
+  static propTypes = {
+    lang: PropTypes.string.isRequired,
+  }
+
+  static defaultProps = {
+    lang: "php",
+  }
+
+
   constructor(props) {
     super(props);
 
@@ -335,12 +275,18 @@ export class TextBlock extends React.Component {
       }, {
         value: "smarty",
         label: "Smarty",
+      }, {
+        value: "solidity",
+        label: "Solidity",
+      }, {
+        value: "bash",
+        label: "Bash",
       }];
 
       var chips = [];
 
       langs.map((item) => {
-        var className = [classes.chip];
+        var className = [classes.chip, "test-chip"];
 
         if (item.value == this.state.lang) {
           className.push("active");
@@ -350,7 +296,7 @@ export class TextBlock extends React.Component {
           key={item.value}
           label={item.label}
           className={className.join(" ")}
-          labelClassName="label"
+          // labelClassName="label"
           onClick={() => {
             this.setState({
               lang: item.value,
@@ -390,14 +336,18 @@ export class TextBlock extends React.Component {
     return (
       <div className={className}>
 
-        <CodeOutputBlock content={texContent} lang={this.state.lang} onClick={this._onClick} />
+        <CodeOutputBlock
+          content={texContent}
+          lang={this.state.lang}
+          onClick={this._onClick}
+        />
         {editPanel}
       </div>
     );
   }
 }
 
-TextBlock.propTypes = propTypes;
-TextBlock.defaultProps = defaultProps;
+
+
 
 export default withStyles(styles)(TextBlock);
